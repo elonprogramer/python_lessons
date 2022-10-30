@@ -1,0 +1,156 @@
+  mkdir git
+   34  cd git
+   35  git --version
+   36  sudo apt install git
+   37  git config --list
+   38  https://github.com/elon524/python_kurs.git
+   39  git@github.com:elon524/python_kurs.git
+   40  git clone git@github.com:elon524/python_kurs.git
+   41  git remote set-url origin git@github.com:elon524/python_kurs.git
+   42  git init
+   43  git remote add origin git@github.com:elon524/python_kurs.git
+   44  git remote set-url origin git@github.com:elon524/python_kurs.git
+   45  git commit -m "first commit"
+   46  git config user.name "elon524"
+   47  git config user.email "uaspeedfilms@gmail.com"
+   48  clar
+   49  clear
+   50  git config --list
+   51  clear
+   52  ls
+   53  git clone git@github.com:elon524/python_kurs.git
+   54  git clone https://github.com/elon524/python_kurs.git
+   55  echo "# python_kurs" >> README.md
+   56  ls
+   57  cat
+   58  cat README.md 
+   59  git add README.md
+   60  git commit -m "first commit"
+   61  git log
+   62  git branch
+   63  git push -u origin main
+   64  git push 
+   65  git push -u 
+   66  git push --set-upstream origin master
+   67  echo "# python_lessons" >> README.md
+   68  git init
+   69  git add README.md
+   70  git commit -m "first commit"
+   71  git branch -M main
+   72  git remote add origin https://github.com/elonprogramer/python_lessons.git
+   73  git push -u origin main
+   74  echo "# python_lessons" >> README.md
+   75  git init
+   76  git add README.md
+   77  git commit -m "first commit"
+   78  git branch -M main
+   79  git remote add origin git@github.com:elonprogramer/python_lessons.git
+   80  git push -u origin main
+   81  git remote add origin git@github.com:elonprogramer/python_lessons.git
+   82  git push -u origin main
+   83  git remote set-url origin git@github.com:elonprogramer/python_lessons.git
+   84  git remote add origin git@github.com:elonprogramer/python_lessons.git
+   85  git clone https://github.com/elonprogramer/python_lessons.git
+   86  git push
+   87  git push -u origin master
+   88  cd ..
+   89  cd python_lessons/
+   90  echo "test" > readme.md
+   91  ls
+   92  git add .
+   93  git status
+   94  git  commit -m "added readme"
+   95  git config user.name "elonprogramer"
+   96  git config user.email "elonprogramer2004@gmail.com"
+   97  git config --list
+   98  git log
+   99  git  commit -m "added readme"
+  100  git log
+  101  git push
+  102  git push origin master
+  103  git remote add origin git@github.com:elonprogramer/python_lessons.git
+  104  git log
+  105  git pull
+  106  git push origin master
+  107  git push origin master —force
+  108  git init
+  109  git push origin master
+  110  git remote add origin git@github.com:elonprogramer/python_lessons.git
+  111  git push origin master
+  112  cd ..
+  113  mv python_lessons python_lessons_old
+  114  git clone git@github.com:elonprogramer/python_lessons.git
+  115  ls
+  116  cd python_lessons
+  117  echo "test" > readme.md
+  118  ls
+  119  git add .
+  120  git  commit -m "added readme"
+  121  git config user.email "elonprogramer2004@gmail.com"
+  122  git config user.name "elonprogramer"
+  123  git  commit -m "added readme"
+  124  git log
+  125  git push origin master
+  126  git status
+  127  git checkout -b master
+  128  git status
+  129  git log
+  130  git push origin master
+  131  python3
+  132  python3 first.py 
+  133  python3 first.py #
+  134  python3 first.py 
+  135  mv first.py 1_hello.py
+  136  python3 1_hello.py 
+  137  git status 
+  138  git add 1_hello.py 
+  139  git status 
+  140  git  commit -m "added readme"
+  141  git commit --amend -m “added hello script from first lesson”
+  142  git commit --amend -m "added hello script from first lesson"
+  143  git log
+  144  git push origin master
+  145  history
+  146  git clone git@github.com:elonprogramer/python_lessons.git
+  147  cd .ssh
+  148  ls
+  149  cat id_rsa.pub
+  150  ls
+  151  cat id_rsa
+  152  history
+  153  git log
+  154  git init
+  155  ls
+  156  cd python_lessons
+  157  python3 first.py
+  158  git push origin master
+  159  cd 
+  160  ls
+  161  python3 first.py
+  162  cd python_lessons
+  163  python3 1_hello.py
+  164  touch home_test_1
+  165  touch home_test_1.py
+  166  ls
+  167  python3 home_test_1.py 
+  168  clear
+  169  python3 home_test_1.py 
+  170  git push origin master
+  171  ls
+  172  history
+  173  git add home_test_1
+  174  git log
+  175  git commit -m "added home test"
+  176  print (+ name 'Як твої справи?')gi
+  177  git status 
+  178  sudo apt-get update
+  179  git add
+  180  git status 
+  181  git add
+  182  git add home_test_1.py 
+  183  git status 
+  184  history
+  185  git push origin master
+  186  git add home_test_1.py 
+  187  git push origin master
+  188  history
