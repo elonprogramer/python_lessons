@@ -1,10 +1,20 @@
+import time
 print ('Привет')
 print ('Как тебя зовут?')
-name = input()
+name = "Саша"
 print ('Приятно познакомиться')
 print ('Как твои дела?')
+dela = input()
 print ('У меня тоже все хорошо')
 print ('Прощай')
 print ('Вам понравилось?')
 raiting = input()
-print ( raiting + 'Ваша оценка:')
+time.sleep(3)
+print ('Ваша оценка:' + raiting)
+time.sleep(2)
+print ("Твое имя:" + name)
+time.sleep(2)
+print ("Твои дела:" + dela)
+time.sleep(2)
+print ("Твоя оценка:" + raiting)
+i
