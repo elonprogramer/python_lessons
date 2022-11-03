@@ -1,0 +1,4 @@
+INT - int  полное число int()
+FLOAT float дробное число float()
+STR str строка str()
+BOOL bool true / false да или нет
