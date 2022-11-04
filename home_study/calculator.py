@@ -1,5 +1,5 @@
 import time
-while :
+while 10:
 	print("Привет")
 	time.sleep(1)
 	print("Введи первое число")
