@@ -1,5 +1,5 @@
 import time
-while :
+while 1:
 	s = int(input(""))
 	m = int(input(""))
 	h = int(input(""))
