@@ -1,1 +1,11 @@
 test = "khgfgv \"\" экранирывние
+
+Как выйти из цикла
+
+Переменная = True ровна True 
+while playagain:
+    код
+    print('еще раз?')
+    play = input("y or n: ")
+    if play == 'n':
+        playagain = False
