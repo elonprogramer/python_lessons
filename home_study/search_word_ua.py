@@ -8,10 +8,6 @@ print("Що шукати?")
 search = input("Слово:")
 swords = sword.index(search)
 print(slider)
-'''
-if swords <= 0:
-    del swords 
-'''
 oneword = swords - 1
 twoword = swords + 1
 for i in sword:
