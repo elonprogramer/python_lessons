@@ -53,7 +53,7 @@ if gamemod == "1":
             if dbword == "Кіт":
                 print("Підказка")
                 print(slider)
-                print("Чотири лапе створіння")
+                print("Чотирьох лапе створіння")
                 print(slider)    
             elif dbword == "Капуста":
                 print("Підказка")

@@ -117,13 +117,13 @@ while True:
 
 				if len(missedlettrs) == len(hangman_pics) - 1:
 					displayboard(missedlettrs,correctlettres,secretword)
-print('Вы исчерпали все попытки!\nНе угадано букв: ' + str(len(missedLetters)) + ' и угадано букв: ' + str(len(correctLetters)) + '. Было загадано слово "' + secretWord + '".')
-gameisdone = true
+print('Вы исчерпали все попытки!\nНе угадано букв: ' + str(len(missedletters)) + ' и угадано букв: ' + str(len(correctlettres)) + '. Было загадано слово "' + secretword + '".')
+gameisdone = True
 
 
 if gameisdone:
 		if playagain():
 				missedlettrs = ''
 				correctlettres = ''
-				gameisdone = false
+				gameisdone = False
 				secretword = getrandomword(words)
