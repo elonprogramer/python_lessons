@@ -4,22 +4,26 @@ hangman_pics = ['''
     |
     |
     |
-   ===''','''
+   ===''',
+'''
 +---+
-   |
+O   |
     |
     |
-   ===''','''
+   ===''',
+'''
 +---+
 0   |
 |   |
     |
-   ===''','''
+   ===''',
+'''
  +---+
  0   |
 /|   |
      |
-    ===''','''
+    ===''',
+'''
  +---+
  0   |
 /|\  |
@@ -29,7 +33,8 @@ hangman_pics = ['''
  0   |
 /|\  |
 /    |
-    ===''','''
+    ===''',
+'''
  +---+
  0   |
 /|\  |
@@ -45,85 +50,82 @@ words = '''аист акула бабуин баран барсук бобр б�
 def getrandomword(wordlist):
 	# Эта функция возвращает случайную строку из переданного списка.
 	wordindex = random.randint(0, len(wordlist) - 1)
-	return wordlist [wordindex]
+	return wordlist[wordindex]
 
-def displayboard(missedlettrs, correctlettres, secretWord):
-	print(hangman_pics[len (missedlettrs)])
+def displayboard(missedletters, correctletters, secretword):
+	print(hangman_pics[len(missedletters)])
 	print()
 
-	print('обычные буквы:', end='')
-	for letter in missedlettrs:
-		print(letter, end='')
+	print('ошибочные буквы:', end=' ')
+	for letter in missedletters:
+		print(letter, end=' ')
 	print()
 
-	blanks = '_' * len (secretword)
+	blanks = '_' * len(secretword)
 
-	for i in range (len(secretword)):
-		if secretword[i] in correctlettres:
+	for i in range(len(secretword)):  # заменяет пропуски отгаданными буквами
+		if secretword[i] in correctletters:
 			blanks = blanks[:i] + secretword[i] + blanks[i+1:]
 
-	for letter in blanks:
-		print(letter, end='')
+	for letter in blanks:  # Показывает секретное слово с пробелами между буквами
+		print(letter, end=' ')
 	print()
 
-def getguess (alreadyguessed):
-	
+
+def getguess(alreadyguessed):
 	while True:
 		print('Введите букву.')
 		guess = input()
 		guess = guess.lower()
-		if len(guess) !=1:
-			print('Пожалуста введите одну букву.')
+		if len(guess) != 1:
+			print('Пожалуйста введите одну букву.')
 		elif guess in alreadyguessed:
-			print('Вы уже назвали эту букву. назовити другую.')
+			print('Вы уже назвали эту букву. назовите другую.')
 		elif guess not in 'абвгдеежзийклмнопрстуфхцчшщъыьэюя':
-				print('Пожалуйста, введите БУКВУ.')
+			print('Пожалуйста, введите БУКВУ.')
 		else:
 			return guess
+
 
 def playagain():
 	print("Хотите сыграть еще? (да или нет)")
 	return input().lower().startswith('д')
 
-
-
 print('В И С Е Л И Ц А')
-missedlettrs = ''
-correctlettres = ''
+missedletters = ''
+correctletters = ''
 secretword = getrandomword(words)
+print(secretword)
 gameisdone = False
 
 while True:
-	displayboard(missedlettrs, correctlettres, secretword)
-
-
-	guess = getguess(missedlettrs + correctlettres)
+	displayboard(missedletters, correctletters, secretword)
+	guess = getguess(missedletters + correctletters)
 
 	if guess in secretword:
-		correctlettres = correctlettres + guess
-
-
+		correctletters = correctletters + guess
 		foundallletters = True
 		for i in range(len(secretword)):
-			if secretword[i] not in correctlettres:
+			if secretword[i] not in correctletters:
 				foundallletters = False
 				break
-			if foundallletters:
-				print('ДА Секретное слово- "' + secretword + '"!Вы угадали!')
-				gameisdone = True
-			else:
-				missedlettrs = missedlettrs + getguess
+		if foundallletters:
+			print('ДА Секретное слово- "' + secretword + '"!Вы угадали!')
+			gameisdone = True
+	else:
+		missedletters = missedletters + guess
+
+		if len(missedletters) == len(hangman_pics) - 1:
+			displayboard(missedletters, correctletters, secretword)
+			print('Вы исчерпали все попытки!\nНе угадано букв: ' + str(len(missedletters)) + ' и угадано букв: ' + str(len(correctletters)) + '. Было загадано слово "' + secretword + '".')
+			gameisdone = True
 
 
-				if len(missedlettrs) == len(hangman_pics) - 1:
-					displayboard(missedlettrs,correctlettres,secretword)
-print('Вы исчерпали все попытки!\nНе угадано букв: ' + str(len(missedletters)) + ' и угадано букв: ' + str(len(correctlettres)) + '. Было загадано слово "' + secretword + '".')
-gameisdone = True
-
-
-if gameisdone:
+	if gameisdone:
 		if playagain():
-				missedlettrs = ''
-				correctlettres = ''
-				gameisdone = False
-				secretword = getrandomword(words)
+			missedletters = ''
+			correctletters = ''
+			gameisdone = False
+			secretword = getrandomword(words)
+		else:
+			break
