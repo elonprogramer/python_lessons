@@ -13,7 +13,7 @@ person = {
         'name' : 'Владислав',
         'last_name' : 'Галацан',
         'surname' : 'Владимирович',
-        'year' : '2011',    
+        'year' : '2011',
     }
 }
 time.sleep(2)
