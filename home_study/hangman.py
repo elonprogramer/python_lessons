@@ -104,12 +104,12 @@ while True:
 
 	if guess in secret_word:
 		correct_letters = correct_letters + guess
-		foundal_lletters = True
+		found_all_letters = True
 		for i in range(len(secret_word)):
 			if secret_word[i] not in correct_letters:
-				foundal_lletters = False
+				found_all_letters = False
 				break
-		if foundal_lletters:
+		if found_all_letters:
 			print('ДА Секретное слово- "' + secret_word + '"!Вы угадали!')
 			game_is_done = True
 	else:

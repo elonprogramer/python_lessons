@@ -18,8 +18,10 @@ person = {
 }
 time.sleep(2)
 print('Введи имя')
-innema = input()
-if innema == 'Юрий' or innema == 'Юра':
+search = input()
+if search == 'Юрий' or search == 'Юра':
     print("\n Твое Имя: " + person['yura']['name'] + "\n Твоя фамилия: " + person['yura']['last_name'] + "\n Год рождения : " + person['yura']['year'])
-elif innema == 'Владислав' or innema == 'Влад':
+elif search == 'Владислав' or search == 'Влад':
     print("\n Твое Имя: " + person['vlad']['name'] + "\n Твоя фамилия: " + person['vlad']['last_name'] + "\n Год рождения : " + person['vlad']['year'])
+else:
+    print("Такого увы нет")
