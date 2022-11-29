@@ -95,7 +95,6 @@ print('В И С Е Л И Ц А')
 missed_letters = ''
 correct_letters = ''
 secret_word = get_random_word(words)
-print(secret_word)
 game_is_done = False
 
 while True:
