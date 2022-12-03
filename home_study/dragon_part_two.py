@@ -1,9 +1,13 @@
 import random
 import time
 health = 5
+money = 1000
+sword = False
 doortrue = random.randint(1,4)
 print ("Привет. Ты угадал пищеру с сокровищами!!!!")
 time.sleep(5)
+num1 = random.randint(1,10)
+num2 = random.randint(1,10)
 print ("""
  ...... .. ......... .. ......... ............ ............ ............ ......... .. ......... .. .
 ................................::..................................................................
@@ -52,36 +56,72 @@ print ("""
 ...............................  :^^^:.:.............................^~!7?77!^:.....................
 .................................... ................................ ..............................
 ....................................................................................................
-
-
 """)
 time.sleep(5)
-print()
-print()
-print()
-print()
-print()
-print()
-print()
-time.sleep(5)
-print()
-print()
-print()
-print()
-print()
-print()
-print()
-time.sleep(2)
 print("Теперь тебе надо сбежать  от семьи драконов")
 time.sleep(2)
 print("Перед тобой 4 двери . и Пять жизней")
 plaing = True
 while plaing:
-    door = int(input("Выбери дверь от 1 до 4"))
-    print(doortrue)
+    door = int(input("Выбери дверь от 1 до 4: "))
     if door == doortrue: 
-        print('Поздрвляю ты вииграл')
-        plaing = False
+        print('Поздрвляю ты угадал ')
+        print("Смотри!!! Здесь есть сундук!")
+        print("Открыть сундук?")
+        sunduk1 = input()
+        if sunduk1 == "Да" or sunduk1 == "да" or sunduk1 == "y":
+            print("Ой тут пароль...")
+            time.sleep(2)
+            print(f"Подсказка: это {num1} Умножить на {num2}")
+            pas1 = int(input("Введи ответ: "))
+            pass1 = num1*num2
+            print(num1*num2)
+            if pas1 == pass1:
+                print("Молодец ты нашел золотой меч драконов и золотое яблоко")
+                health = health + 3
+                sword = True
+                print (f"Твое здоровье увиличилось :{health}")
+            print("Вот и золотые ворота")
+            time.sleep(2)
+            print("О нет!!!")
+            time.sleep(2)
+            dragons = health+1
+            print(f"Перед тобой {dragons} драконов")
+            dragons_war = dragons-1
+            health = health-dragons_war+1
+            print(f"ты убил {dragons_war} драконов . и У тебя осталось {health} Жижней. Тебе придстоит убить главного дракона чтобы выжить и сохранить сокровища!")
+            if sword == True:
+                print("Ты убил дракона своим золотым мечём!")
+                sword = False
+                time.sleep(2)
+                gift = money * 100000000
+                print(f"У тебя на руках {gift}$")
+                print("Обыскать пещеру?")
+                time.sleep(2)
+                part = input("Да or Нет")
+                if part == "Да" or part == "y" or part == "Да":
+                    plays = 3
+                    while plays:
+                        plays = plays - 1
+                        num1 = random.randint(1,10)
+                        num2 = random.randint(1,10)
+                        summm = num1*num2
+                        print("Тебе нужно подобрать пароли")
+                        time.sleep(2)
+                        print(f"Сколько будет если {num1} Умножить на {num2}?")
+                        time.sleep(2)
+                        summmuser = input("Ответ: ")
+                        if plays == 0:
+                            plays = False
+                    if summmuser == summm:
+                        gift = money*money*2
+                        print(f"Теперь у тебя на руках {gift}$")
+                        print("и ты выиграл  игру!!!!")
+                        plaing = False
+                plaing = False
+            elif sword == False:
+                print("Учи таблицу умножений!!!")
+                health = -1
     else:
         health = health - 1
         print(f'Увы ты не угадал У тебя осталось: {health} Жижней')
