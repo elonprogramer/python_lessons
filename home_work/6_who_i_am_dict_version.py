@@ -1,8 +1,6 @@
 #Игра кто я?
 import time
-#как меня зовут?
-print("Привет. я помогу тебе всповнить кто ты")
-person = {
+persons = {
     'yura': {
         'name' : 'Юрий',
         'last_name' : 'Галацан',
@@ -16,12 +14,32 @@ person = {
         'year' : '2011',
     }
 }
+#как меня зовут?
+print("Во что играем? ")
 time.sleep(2)
-print('Введи имя')
-search = input()
-if search == 'Юрий' or search == 'Юра':
-    print("\n Твое Имя: " + person['yura']['name'] + "\n Твоя фамилия: " + person['yura']['last_name'] + "\n Год рождения : " + person['yura']['year'])
-elif search == 'Владислав' or search == 'Влад':
-    print("\n Твое Имя: " + person['vlad']['name'] + "\n Твоя фамилия: " + person['vlad']['last_name'] + "\n Год рождения : " + person['vlad']['year'])
-else:
-    print("Такого увы нет")
+print("Я знаю имя - s я знаю фамилию - n я знаю год рождения = y")
+catch = input ()
+if catch == "n":
+    print("Введи фамилию")
+    search = input()
+    for key, value in persons.items():
+        tex = persons[key]['last_name']
+        if search in tex:
+            print('Ваше имя : ' + persons[key]['name'] + ', Ваша фамилия: ' + persons[key]['last_name'] + ', Год рождения: ' + persons[key]['year'])
+            break 
+elif catch == "s":
+    print("Введи имя")
+    search = input()
+    for key, value in persons.items():
+        tex = persons[key]['name']
+        if search in tex:
+            print('Ваше имя : ' + persons[key]['name'] + ', Ваша фамилия: ' + persons[key]['last_name'] + ', Год рождения: ' + persons[key]['year'])
+            break
+elif catch == "y":
+    print("Введи Год")
+    search = input()
+    for key, value in persons.items():
+        tex = persons[key]['year']
+        if search in tex:
+            print('Ваше имя : ' + persons[key]['name'] + ', Ваша фамилия: ' + persons[key]['last_name'] + ', Год рождения: ' + persons[key]['year'])
+            break
