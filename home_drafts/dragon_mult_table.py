@@ -17,7 +17,7 @@ playing = True
 print("Привет. Выбери игру")
 print("Уможать or Добавлять")
 game_type = input()
-if game_type == "Умножать" or game_type == "умножать" or game_type == "множить" or game_type == "m":
+if  game_type in ('Умножать','Множить','умножать','множить','m') :
     while playing:
         # right_door - номер двери где сидит главный дракон
         door = int(input("Выбери дверь от 1 до 4: "))
@@ -96,7 +96,7 @@ if game_type == "Умножать" or game_type == "умножать" or game_ty
                 playing = False
 
 
-elif game_type == "Складывать" or game_type == "складывать" or game_type == "d":
+elif game_type in ('Добавлять','добавлять','Складывать','складывать','d',):
     while playing:
         # right_door - номер двери где сидит главный дракон
         door = int(input("Выбери дверь от 1 до 4: "))
