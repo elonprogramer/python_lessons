@@ -184,6 +184,8 @@ elif game_type in ('Добавлять','добавлять','Складыват
                     money = money + 1000
                     print("Ты убил главного дракона")
                     print("и ты выиграл  игру!!!!")
+                    playing = False
+                    win = True
                     break
                 else:
                     health = health - 1
