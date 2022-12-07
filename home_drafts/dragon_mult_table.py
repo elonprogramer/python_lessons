@@ -5,6 +5,23 @@ health = 2
 win = False
 money = 0
 right_door = random.randint(1, 4)  # номер правильной двери
+funk = random.randint(1,2)
+lists = {
+    'mn' : {
+        'mnojit':'Множить',
+        'umnojat':'Умножать',
+        'umnojit':'Умножить',
+    },
+    'pl' : {
+        'dobavlat':'Добавлять',
+        'skladi':'Склади',
+        'dobav':'Добавь',
+        'dobavit':'Добавить',
+    }
+
+}
+
+
 print(f"RIGHT DOOR:{right_door}")
 print("Привет. Ты попал в пещеру с сокровищами!!!!")
 time.sleep(1)
@@ -18,6 +35,7 @@ print("Привет. Выбери игру")
 print("Уможать or Добавлять")
 game_type = input()
 if  game_type in ('Умножать','Множить','умножать','множить','m') :
+    funk = 1
     while playing:
         # right_door - номер двери где сидит главный дракон
         door = int(input("Выбери дверь от 1 до 4: "))
@@ -32,10 +50,18 @@ if  game_type in ('Умножать','Множить','умножать','мно
     
                 num1 = random.randint(3, 9)
                 num2 = random.randint(3, 9)
+            if funk == 1:
+                funk_text = lists["mn"]["umnojit"] + " На"
+                right_answer = num1 * num2
+
+            else:
+                funk_text = lists["pl"]["dobavit"]
+                right_answer = num1 + num2
+
     
-                print(f"Подсказка: это {num1} yмножить на {num2}")
+                print(f"Подсказка: это {num1} {funk_text} {num2}")
                 pass_user_input = int(input("Введи ответ: "))
-                right_pass = num1 * num2
+                right_pass = right_answer
     
                 if pass_user_input == right_pass:
                     print("Молодец ты нашел золотое яблоко")
@@ -57,9 +83,14 @@ if  game_type in ('Умножать','Множить','умножать','мно
             while health > 0:
                 num1 = random.randint(5, 9)
                 num2 = random.randint(5, 9)
-                print(f"Дракон спрашивает сколько будет если {num1} умножить на {num2}?")
-                right_answer = num1 * num2
-                time.sleep(2)
+                if funk == 1:
+                    funk_text = lists["mn"]["umnojit"] + "На"
+                    right_answer = num1 * num2
+
+                else:
+                    funk_text = lists["pl"]["dobavit"]
+                    right_answer = num1 + num2
+                print(f"Дракон спрашивает сколько будет если {num1} {funk_text} {num2}?")
                 user_answer = input("Введите ответ: ")
                 if int(user_answer) == int(right_answer):
                     money = money + 1000
@@ -79,9 +110,16 @@ if  game_type in ('Умножать','Множить','умножать','мно
             print('вы наткнулись на маленького дракона, ответь на его вопрос чтобы не потерять жизни')
             n1 = random.randint(3, 5)
             n2 = random.randint(3, 5)
-            print(f"Сколько будет {n1} yмножить на {n2}?")
+            if funk == 1:
+                funk_text = lists["mn"]["umnojit"] + "На"
+                right_answer = n1 * n2
+
+            else:
+                funk_text = lists["pl"]["dobavit"]
+                right_answer = n1 + n2
+
+            print(f"Сколько будет {n1} {funk_text}  {n2}?")
             pass_user_input = int(input("Введи ответ: "))
-            right_answer = n1 * n2
     
             if int(pass_user_input) == int(right_answer):
                 # мы убили дракона
@@ -97,6 +135,7 @@ if  game_type in ('Умножать','Множить','умножать','мно
 
 
 elif game_type in ('Добавлять','добавлять','Складывать','складывать','d',):
+    funk = 2
     while playing:
         # right_door - номер двери где сидит главный дракон
         door = int(input("Выбери дверь от 1 до 4: "))
@@ -111,8 +150,9 @@ elif game_type in ('Добавлять','добавлять','Складыват
     
                 num1 = random.randint(10, 100)
                 num2 = random.randint(1, 10)
+                funk_text = lists["pl"]["dobavit"]
     
-                print(f"Подсказка: это {num1} +  {num2}")
+                print(f"Подсказка: это {num1} {funk_text}  {num2}")
                 pass_user_input = int(input("Введи ответ: "))
                 right_pass = num1 + num2
     
@@ -136,7 +176,7 @@ elif game_type in ('Добавлять','добавлять','Складыват
             while health > 0:
                 num1 = random.randint(10, 100)
                 num2 = random.randint(10, 100)
-                print(f"Дракон спрашивает сколько будет если {num1} +  {num2}?")
+                print(f"Дракон спрашивает сколько будет если {num1} {funk_text}  {num2}?")
                 right_answer = num1 + num2
                 time.sleep(2)
                 user_answer = input("Введите ответ: ")
@@ -144,8 +184,6 @@ elif game_type in ('Добавлять','добавлять','Складыват
                     money = money + 1000
                     print("Ты убил главного дракона")
                     print("и ты выиграл  игру!!!!")
-                    playing = False
-                    win = True
                     break
                 else:
                     health = health - 1
@@ -158,7 +196,8 @@ elif game_type in ('Добавлять','добавлять','Складыват
             print('вы наткнулись на маленького дракона, ответь на его вопрос чтобы не потерять жизни')
             n1 = random.randint(3, 5)
             n2 = random.randint(3, 5)
-            print(f"Сколько будет {n1} yмножить на {n2}?")
+            funk_text = lists["pl"]["dobavit"]
+            print(f"Сколько будет {n1} {funk_text} {n2}?")
             pass_user_input = int(input("Введи ответ: "))
             right_answer = n1 * n2
     
