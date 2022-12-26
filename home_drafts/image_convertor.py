@@ -1,0 +1,5 @@
+print("Привет я умею конвертирывать картинки")
+print("Введи название файла")
+file_input = input("File: ")
+file = open(file_input, 'rb')
+file_output = open(file_input + ".png", "wb")
