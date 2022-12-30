@@ -1,4 +1,4 @@
-import modul
+import game_modul
 import time
 import mini_games
 
@@ -8,9 +8,9 @@ resource = 100
 dragons = 6
 dragons_family = dragons / 2
 
-modul.main(money, dragons)
+game_modul.main(money, dragons)
 
-modul.game(money, food, resource, dragons,  dragons_family)
+game_modul.game(money, food, resource, dragons,  dragons_family)
 playings = True
 while playings:
     print("Выбери работу на сегодня:")

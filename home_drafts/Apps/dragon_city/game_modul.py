@@ -28,7 +28,7 @@ def game_money():
     print("Запуск игры...")
     playing_game = True
     while playing_game:
-
+        pass
     
 
 def game_food():
