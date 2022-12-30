@@ -1,18 +1,25 @@
 import moduls
+from game import main_game_menu
+
+
+user_id = 0
+
 moduls.start()  # Приветствие игрока
-print("Войти = 1 Зарегистрироваться = 2 Гость = 3")
+
+print("Войти = 1 Зарегистрироваться = 2")
 game_mode = int(input())
 if game_mode == 1:
-    moduls.login()
+    user_id = moduls.login()
 elif game_mode == 2:
     moduls.signup()
-elif game_mode == 3:
-    print("В разработке")
-    print("Хотите зарегистрироваться? что-бы сыграть")
-    user_game_input = input("y or n")
-    if user_game_input == "y" or user_game_input == "д":
-        moduls.sigin()
-    else:
-        print("Ошибка")
+    user_id = moduls.login()
 else:
     print("Ошибка")
+
+
+if user_id:
+    print('GAME START')
+    user_id = 1
+    main_game_menu(user_id)
+else:
+    print('goodbye')

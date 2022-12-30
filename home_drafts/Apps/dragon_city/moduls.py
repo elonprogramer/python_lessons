@@ -2,9 +2,9 @@ import time
 
 
 def start():
-    print("Привет. в прошлой части ты обокрал страну драконов")
+    print("Привет.В прошлой части ты обокрал страну драконов")
     time.sleep(1)
-    print("Пока ты тратил свои деньги . Драконы подали в суд, и выиграли дело")
+    print("Пока ты тратил свои деньги, драконы подали в суд и выиграли дело")
     time.sleep(1)
     print("Твое наказание - Восcтановить экономику страны драконов!")
 
@@ -24,7 +24,11 @@ def signup():
     user_id = user_id + 1
     # user_data = str(f"id = {id} \n name = {user_login} \n password = {second_password}")
 
-    user_data = str(f"{user_id} {user_login} {second_password}\n")
+    user_data = str(f"{user_id} {user_login} {second_password} 0 50 100 6\n")
+    # TODO написать тут функцию
+    # get_number_of_users()  которая будет лежать в muduls.py  и которая будет открывать файл на чтение
+    # и возвращать количество строк в файле, так чтобы мы могли считать id нового пользователя
+
     # file = open("/home/elon/python_lessons/home_drafts/Apps/dragon_city/logins.txt", "a")
     file = open("./logins.txt", "a")
 
@@ -52,6 +56,7 @@ def login():
         print(f'WE HAVE USER {user_login}')
         if user_password == login_pass_dict[user_login]:
             print(f'Авторизация прошла успешно {user_login}')
+            return True
         else:
             print('Пароль неверный')
 
