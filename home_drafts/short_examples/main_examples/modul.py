@@ -1,17 +1,20 @@
 from tkinter import *
+import os
 
 if __name__ == "__main__":
     num = 10
     while True:
         num = num + num * num
-        print(num)
+        print(num) 
+        os.system('clear')
+
 else:
     def main():    
         def clicked():  
             res = "Привет {}".format(txt.get())  
             lbl.configure(text=res)  
-        
-        
+
+
         window = Tk()  
         window.title("Калькулятор PRO")  
         window.geometry('500x500')  

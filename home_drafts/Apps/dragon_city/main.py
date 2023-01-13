@@ -2,7 +2,6 @@ import moduls
 from game import main_game_menu
 
 
-user_id = 0
 
 moduls.start()  # Приветствие игрока
 
@@ -12,6 +11,7 @@ if game_mode == 1:
     user_id = moduls.login()
 elif game_mode == 2:
     moduls.signup()
+    print("Совершити вход:")
     user_id = moduls.login()
 else:
     print("Ошибка")
