@@ -6,10 +6,11 @@ def money_game(money):
         num1 = random.randint(6, 9)
         num2 = random.randint(6, 9)
         print(f"Сколько будет {num1} Умножить на {num2}")
-        user_answer = input()
+        user_answer = int(input())
         right_answer = num1*num2
         if user_answer == right_answer:
             print("Правильно!")
+            money = int(money)
             money = money + 10
         else:
             print("Ошибка")

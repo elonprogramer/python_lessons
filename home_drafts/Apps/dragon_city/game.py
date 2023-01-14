@@ -22,11 +22,11 @@ def main_game_menu(user_id):
             list_index = work_lists.index(i)
             print(f"Добывать {i} = {list_index}")
         print("")
-        game_mode = input("Номер режима: ")
+        game_mode = int(input("Номер режима: "))
         if game_mode == 0:
             mini_games.money_game(money) # TODO money_game должна возвращать новое значение money
         elif game_mode == 1:
-            mini_games.food_game(food)
+            mini_games.food_game(food) 
         elif game_mode == 2:
             mini_games.dragons_game(dragons)
 
