@@ -9,7 +9,7 @@ if game_mode == 1:
     user_id = moduls.login()
 elif game_mode == 2:
     moduls.signup()
-    print("Совершити вход:")
+    print("Совершите вход:")
     user_id = moduls.login()
 else:
     print("Ошибка")
