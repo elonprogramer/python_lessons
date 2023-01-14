@@ -1,8 +1,6 @@
 import moduls
 from game import main_game_menu
 
-
-
 moduls.start()  # Приветствие игрока
 
 print("Войти = 1 Зарегистрироваться = 2")
