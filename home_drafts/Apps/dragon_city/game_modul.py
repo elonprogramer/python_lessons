@@ -1,6 +1,7 @@
 import time
 import mini_games
 
+
 def main_game():
     print("Выбери работу на сегодня:")
     time.sleep(2)

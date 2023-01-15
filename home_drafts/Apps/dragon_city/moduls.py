@@ -8,21 +8,6 @@ def start():
     time.sleep(1)
     print("Твое наказание - Восcтановить экономику страны драконов!")
 
-def main_menu():
-    menu_grafix = """
-    |*****************|    
-    |   Мини-игры(1)  |
-    |   Статистика(2) |  
-    |   Выход(3)      |
-    |*****************|
-    """
-    print(menu_grafix)
-    menu_input = int(input("1 or 2 or 3"))
-    if menu_input == 1:
-        game_modul.main_game()
-    elif menu_input == 2:
-        game_modul.stats()
-
 
 
 def last_user_id():
@@ -117,12 +102,7 @@ def data_write_money(user_id, money):
     new_file_content = '\n'.join(new_lines) + "\n"
     file_write.write(str(new_file_content))
 
-def main_stats(user_id):
 
-    user_id, name, password, money, food, resource, dragons = game_modul.get_user_data(user_id)
-
-    print(f'Данные: {money=} {food=} {resource=} {dragons=}')
-    
 
 
 
