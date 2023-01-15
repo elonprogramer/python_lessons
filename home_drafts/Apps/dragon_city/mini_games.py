@@ -1,6 +1,6 @@
 import random
 
-def money_game(money):
+def money_game(user_id, money):
     playing_game = True
     while playing_game:
         num1 = random.randint(6, 9)
@@ -12,8 +12,13 @@ def money_game(money):
             print("Правильно!")
             money = int(money)
             money = money + 10
+            print("Чтобы выйти нажми 1")
+            game_exit = int(input())
+            if game_exit == 1:
+                playing_game = False
         else:
             print("Ошибка")
+    return money
 
 
 def food_game(food):
@@ -29,6 +34,7 @@ def food_game(food):
             food = food + 5
         else:
             print("Ошибка")
+        
 
 def dragons_game(dragons):
     playing_game = True

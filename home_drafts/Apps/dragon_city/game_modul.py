@@ -1,6 +1,30 @@
 import time
 import mini_games
 
+def main_game():
+    print("Выбери работу на сегодня:")
+    time.sleep(2)
+    work_list = "Деньги Еду Драконов"
+    work_lists = work_list.split()
+    for i in work_lists:
+        list_index = work_lists.index(i)
+        print(f"Добывать {i} = {list_index}")
+    print("")
+    game_mode = int(input("Номер режима: "))
+    if game_mode == 0:
+        print(f"Money before game {money}")
+        money = mini_games.money_game(user_id, money)
+        print(f"Money after game {money}")
+        moduls.data_write_money(user_id, money)
+    elif game_mode == 1:
+        mini_games.food_game(food) 
+    elif game_mode == 2:
+        mini_games.dragons_game(dragons)
+def stats():
+    user_id = 1
+    
+
+
 def main(money, dragons):
     print("Игра загружается")
     times = 3
@@ -15,11 +39,11 @@ def main(money, dragons):
 
 
 def get_user_data(user_id):
-
+    #print(f"user_id: {user_id} {type(user_id)}")
     file_logins = open("./logins.txt", "r")
     user_logins_list = file_logins.read().splitlines()
-    our_user_data = user_logins_list[user_id - 1]
-    print(f'USER DATA = {our_user_data}')
+    our_user_data = user_logins_list[int(user_id) - 1]
+    #print(f'USER DATA = {our_user_data}')
     # 1 sasha 12345 1 51 1000 6
 
     user_id, name, password ,money, food, resource, dragons = our_user_data.split(' ')

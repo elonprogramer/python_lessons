@@ -1,4 +1,5 @@
 import moduls
+import game
 from game import main_game_menu
 
 moduls.start()  # Приветствие игрока
@@ -17,7 +18,6 @@ else:
 
 if user_id:
     print('GAME START')
-    user_id = 1
-    main_game_menu(user_id)
+    game.main_game_menu(user_id)
 else:
     print('goodbye')
