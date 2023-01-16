@@ -10,8 +10,6 @@ def main_game_menu(user_id):
 
     #print(f'у игрока {user_id}: данные: {money=} {food=} {resource=} {dragons=}')
     dragons_family = int(dragons) / 2
-
-
     playings = True
     while playings:
         menu_grafix = """
@@ -24,7 +22,7 @@ def main_game_menu(user_id):
         print(menu_grafix)
         menu_input = int(input("1 or 2 or 3"))
         if menu_input == 1:
-            game_modul.main_game()
+            game_modul.main_game(money)
         elif menu_input == 2:
             game_modul.stats()
 

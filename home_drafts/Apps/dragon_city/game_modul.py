@@ -1,8 +1,8 @@
 import time
 import mini_games
+import moduls
 
-
-def main_game():
+def main_game(money):
     print("Выбери работу на сегодня:")
     time.sleep(2)
     work_list = "Деньги Еду Драконов"
@@ -14,9 +14,9 @@ def main_game():
     game_mode = int(input("Номер режима: "))
     if game_mode == 0:
         print(f"Money before game {money}")
-        money = mini_games.money_game(user_id, money)
+        money = mini_games.money_game(money)
         print(f"Money after game {money}")
-        moduls.data_write_money(user_id, money)
+        moduls.data_write_money(money)
     elif game_mode == 1:
         mini_games.food_game(food) 
     elif game_mode == 2:

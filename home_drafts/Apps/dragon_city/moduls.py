@@ -1,5 +1,4 @@
 import time
-import game_modul
 
 def start():
     print("Привет.В прошлой части ты обокрал страну драконов")
@@ -81,7 +80,8 @@ def login():
     # elif user_password not in file:
     #     print("Ты ввёл не правильный Пароль")
 
-def data_write_money(user_id, money):
+def data_write_money(money):
+    user_id = login()
     file_read = open("./logins.txt", "r")
     lines = file_read.read().splitlines()
     new_lines = []

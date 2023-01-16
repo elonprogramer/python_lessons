@@ -1,6 +1,6 @@
 import random
 
-def money_game(user_id, money):
+def money_game(money):
     playing_game = True
     while playing_game:
         num1 = random.randint(6, 9)
