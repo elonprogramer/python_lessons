@@ -18,6 +18,7 @@ def start():
     print("################################")
     time.sleep(1)
     os.system('clear')
+
     user_game_mode = input("Нолик = 1 Хрестик = 2: ")
     if user_game_mode == '1':
         user_game_mode = 1
@@ -38,11 +39,10 @@ seven = [' ', 'True']
 eight = [' ', 'True']
 nine = [' ', 'True']
 
-
-
 def game():
     plaing = True
-
+    print("Игра с ботом?")
+    bot_game_input = int(input("Да = 1"))
     user_game_mode = start()
     while plaing:
         os.system('clear')
@@ -58,21 +58,74 @@ def game():
         print(grafix)
         print(grafix_func)
         plaings = True
-        while plaings:
+        while plaings:    
             if user_game_mode == 1:
                 funk = tic
                 print("Сейчас ходит нолик")
                 time.sleep(1)
                 print(f"Где поставить '{funk}'")
                 game_input = int(input())
-                user_game_mode = 2
+                if bot_game_input == 1:
+                    user_game_mode = 3
+                else:
+                    user_game_mode = 2
             elif user_game_mode == 2:
                 funk = tac
                 print("Сейчас ходит крестик")
                 time.sleep(1)
                 print(f"Где поставить '{funk}'")
                 game_input = int(input())
-                user_game_mode = 1
+                if bot_game_input == 1:
+                    user_game_mode = 3
+                else:
+                    user_game_mode = 1
+            elif user_game_mode == 3:
+                if funk == tic:
+                    funk = tac
+                elif funk == tac:
+                    funk = tic 
+                if one[1] == True:
+                    one[1] = False
+                    one[0] = funk
+                    plaings = False
+                elif two[1] == True:
+                    two[1] = False
+                    two[0] = funk
+                    plaings = False
+                elif three[1] == True:
+                    three[1] = False
+                    three[0] = funk
+                    plaings = False
+                elif four[1] == True:
+                    four[1] = False
+                    four[0] = funk
+                    plaings = False
+                elif five[1] == True:
+                    five[1] = False
+                    five[0] = funk
+                    plaings = False
+                elif six[1] == True:
+                    six[1] = False
+                    six[0] = funk
+                    plaings = False
+                elif seven[1] == True:
+                    seven[1] = False
+                    seven[0] = funk
+                    plaings = False
+                elif eight[1] == True:
+                    eight[1] = False
+                    eight[0] = funk
+                    plaings = False
+                elif nine[1] == True:
+                    nine[1] = False
+                    nine[0] = funk 
+                    plaings = False   
+                print("Бот ходит...")
+                time.sleep(1)
+                if funk == tic:
+                    user_game_mode = 2
+                elif funk == tac:
+                    user_game_mode = 1
             if game_input == 1:
                 if one[1] == "True":
                     one[0] = funk
@@ -118,6 +171,7 @@ def game():
                     nine[0] = funk
                     nine[1] = False
                 plaings = False
+ 
 
 
         if one[0] == funk:
@@ -206,4 +260,5 @@ def end_game():
 
 
 game()
+
 end_game()
