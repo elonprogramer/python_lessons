@@ -1,9 +1,6 @@
 import time
 import os
 
-
-
-
 tic = "0"
 tac = "X"
 grafix = """
@@ -21,7 +18,7 @@ def start():
     print("################################")
     time.sleep(1)
     os.system('clear')
-    user_game_mode = input("Хрестик = 1 Нолик = 2")
+    user_game_mode = input("Нолик = 1 Хрестик = 2: ")
     if user_game_mode == '1':
         user_game_mode = 1
     elif user_game_mode == '2':
@@ -65,14 +62,14 @@ def game():
             if user_game_mode == 1:
                 funk = tic
                 print("Сейчас ходит нолик")
-                time.sleep(5)
+                time.sleep(1)
                 print(f"Где поставить '{funk}'")
                 game_input = int(input())
                 user_game_mode = 2
             elif user_game_mode == 2:
                 funk = tac
                 print("Сейчас ходит крестик")
-                time.sleep(5)
+                time.sleep(1)
                 print(f"Где поставить '{funk}'")
                 game_input = int(input())
                 user_game_mode = 1
@@ -123,7 +120,6 @@ def game():
                 plaings = False
 
 
-
         if one[0] == funk:
             if two[0] == funk:
                 if three[0] == funk:
@@ -159,4 +155,55 @@ def game():
                     print("Ты выиграл")
                     plaing = False
                     plaings = False
+        if nine[0] == funk:
+            if five[0] == funk:
+                if one[0] == funk:
+                    print("Ты выиграл")
+                    plaing = False
+                    plaings = False
+        elif seven[0] == funk:
+            if five[0] == funk:
+                if three[0] == funk:
+                    print("Ты выиграл")
+                    plaing = False
+                    plaings = False
+
+
+        if one[1] == False:
+            if two[1] == False:
+                if three[1] == False:
+                    if four[1] == False:
+                        if five[1] == False:
+                            if six[1] == False:
+                                if seven[1] == False:
+                                    if eight[1] == False:
+                                        if nine[1] == False:
+                                            print("Проиграш")
+                                            plaing = False
+                                            plaings = False
+def end_game():
+    os.system('clear')
+    grafix_func = f"""
+    *--------------*
+        {seven[0]} | {eight[0]} | {nine[0]}
+        --+-+--
+        {four[0]} | {five[0]} | {six[0]}
+        --+-+--
+        {one[0]} | {two[0]} | {three[0]}
+    *--------------*
+    """
+    print(grafix_func)
+    time.sleep(2)
+    print("Вы выиграли!!!")
+    print("\n\n\n\n\n\n\n\n\n\n")
+    print("Желаете сыграть снова?")
+    play_restart = int(input("Да = 1: "))
+    if play_restart == 1:
+        game()
+    else:
+        print("Спасибо за игру, удачи!")
+
+
+
 game()
+end_game()
