@@ -12,9 +12,29 @@ def gen_person():
     while len(tel) != 7:
         tel += choice(nums)
     
+    #person = {
+    #    "name": name,
+    #    "tel": tel,
+    #}
     person = {
-        "name": name,
-        "tel": tel,
+    '1': {
+        'name' : 'Юрий',
+        'last_name' : 'Галацан',
+        'surname' : 'Владимирович',
+        'year' : '2004',
+    },
+    '2': {
+        'name' : 'Владислав',
+        'last_name' : 'Галацан',
+        'surname' : 'Владимирович',
+        'year' : '2011',
+    },
+    '3': {
+        'name' : 'Василий',
+        'last_name' : 'Галацан',
+        'surname' : 'Владимирович',
+        'year' : '2011',
+    }
     }
     return person
 
@@ -46,12 +66,17 @@ def main():
     elif user_input == 1:
         data = read_json()
         print(data)
-        for data_dicts in data:
-            data_dict = ",".join(data_dicts)
-            print(data_dict)
-            print()
-            print(data_dicts)
-
-
+#        data = data[0]
+#        print(data)
+#        person_names_dict = {}
+#        search = input()
+#        for name_key in data.keys():
+#            person_names_dict[data[name_key]['name']] = name_key
+#
+#        if search in person_names_dict:
+#            key_id = person_names_dict[search]
+#            print(f"{data[key_id]['last_name']} \n {data[key_id]['surname']} \n {data[key_id]['year']}")
+#        else:
+#            print("Пользователь не существующет в базе данных")
 if __name__ == "__main__":
     main()

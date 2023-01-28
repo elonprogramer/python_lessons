@@ -36,10 +36,16 @@ def show_victory(f):
         winner_name = 'Хрестик'
     else:
         winner_name = 'Нолик'
+    os.system('clear')
     print(f"winner is {f} === {winner_name}")
 
 
+def skip_your_turn(game_nums):
+    game_nums = game_nums - 1
+    print("Вы походили в занятую ячейку ¯\_(ツ)_/¯")
+    print("Пропуск хода")
 def game():
+    game_nums = 0
     playing = True
 
     one = [' ', 'True']
@@ -71,14 +77,14 @@ def game():
             if user_game_mode == 1:  # нолик
                 funk = tic
                 print("Сейчас ходит нолик")
-                time.sleep(1)
+                time.sleep(0.4)
                 print(f"Где поставить '{funk}'")
                 game_input = int(input())
                 user_game_mode = 2
             elif user_game_mode == 2: # крестик
                 funk = tac
                 print("Сейчас ходит крестик")
-                time.sleep(1)
+                time.sleep(0.4)
                 print(f"Где поставить '{funk}'")
                 game_input = int(input())
                 user_game_mode = 1
@@ -86,94 +92,125 @@ def game():
             # обрабатываем ввод пользователя
             if game_input == 1:
                 if one[1] == "True":
+                    game_nums = game_nums + 1
                     one[0] = funk
                     one[1] = False
-                # TODO: тут нужен else - вызываем функцию skip_your_turn()
+                # TODO: тут нужен else - вызываем функцию skip_your_turn(game_nums)
+                else:
+                    skip_your_turn(game_nums)
                 playing_second_cycle = False
             elif game_input == 2:
                 if two[1] == "True":
+                    game_nums = game_nums + 1
                     two[0] = funk
                     two[1] = False
+                else:
+                    skip_your_turn(game_nums)
                 playing_second_cycle = False
             elif game_input == 3:
                 if three[1] == "True":
+                    game_nums = game_nums + 1
                     three[0] = funk
                     three[1] = False
+                else:
+                    skip_your_turn(game_nums)
                 playing_second_cycle = False
             elif game_input == 4:
                 if four[1] == "True":
+                    game_nums = game_nums + 1
                     four[0] = funk
                     four[1] = False
+                else:
+                    skip_your_turn(game_nums)
                 playing_second_cycle = False
             elif game_input == 5:
                 if five[1] == "True":
+                    game_nums = game_nums + 1
                     five[0] = funk
                     five[1] = False
+                else:
+                    skip_your_turn(game_nums)
                 playing_second_cycle = False
             elif game_input == 6:
                 if six[1] == "True":
+                    game_nums = game_nums + 1
                     six[0] = funk
                     six[1] = False
+                else:
+                    skip_your_turn(game_nums)
                 playing_second_cycle = False
             elif game_input == 7:
                 if seven[1] == "True":
+                    game_nums = game_nums + 1
                     seven[0] = funk
                     seven[1] = False
+                else:
+                    skip_your_turn(game_nums)
                 playing_second_cycle = False
             elif game_input == 8:
                 if eight[1] == "True":
+                    game_nums = game_nums + 1
                     eight[0] = funk
                     eight[1] = False
+                else:
+                    skip_your_turn(game_nums)
                 playing_second_cycle = False
             elif game_input == 9:
                 if nine[1] == "True":
+                    game_nums = game_nums + 1
                     nine[0] = funk
                     nine[1] = False
+                else:
+                    skip_your_turn(game_nums)
                 playing_second_cycle = False
 
 
         # ПРОВЕРКА ВЫИГРЫША
 
         if one[0] == funk:
-            # if two[0] == funk:
-            if True:
-                #if three[0] == funk:
-                if True:
-                    print(f"Ты выиграл")
-                    # TODO: заменить на функцию
+            if two[0] == funk:
+                if three[0] == funk:
+                    #print(f"Ты выиграл")
                     show_victory(funk)
                     playing = False
             elif five[0] == funk:
                 if nine[0] == funk:
-                    print("Ты выиграл2")
+                    #print("Ты выиграл2")
+                    show_victory(funk)
                     playing = False
             elif four[0] == funk:
                 if seven[0] == funk:
-                    print("Ты выиграл3")
+                    #print("Ты выиграл3")
+                    show_victory(funk)
                     playing = False
         elif two[0] == funk:
             if five[0] == funk:
                 if eight[0] == funk:
-                    print("Ты выиграл4")
+                    #print("Ты выиграл4")
+                    show_victory(funk)
                     playing = False
         elif three[0] == funk:
             if six[0] == funk:
                 if nine[0] == funk:
-                    print("Ты выиграл5")
+                    #print("Ты выиграл5")
+                    show_victory(funk)
                     playing = False
             elif five[0] == funk:
                 if seven[0] == funk:
-                    print("Ты выиграл6")
+                    #print("Ты выиграл6")
+                    show_victory(funk)
                     playing = False
         elif four[0] == funk:
             if five[0] == funk:
                 if six[0] == funk:
-                    print("Ты выиграл7")
+                    #print("Ты выиграл7")
+                    show_victory(funk)
                     playing = False
         elif seven[0] == funk:
             if eight[0] == funk:
                 if nine[0] == funk:
-                    print("Ты выиграл8")
+                    #print("Ты выиграл8")
+                    show_victory(funk)
                     playing = False
 
         # Все клетки заняты - никто не выиграл
@@ -200,7 +237,7 @@ def game():
 *--------------*
         """
         print(grafix_func)
-        time.sleep(2)
+        time.sleep(0.4)
 
 
 def end_game():
