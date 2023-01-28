@@ -60,7 +60,7 @@ if __name__ == "__main__":
 """
 
 # Ver big
-"""
+
 import json
 from random import choice
 
@@ -80,24 +80,24 @@ def gen_person():
     #    "tel": tel,
     #}
     person = {
-    '1': {
-        'name' : 'Юрий',
-        'last_name' : 'Галацан',
-        'surname' : 'Владимирович',
-        'year' : '2004',
-    },
-    '2': {
-        'name' : 'Владислав',
-        'last_name' : 'Галацан',
-        'surname' : 'Владимирович',
-        'year' : '2011',
-    },
-    '3': {
-        'name' : 'Василий',
-        'last_name' : 'Галацан',
-        'surname' : 'Владимирович',
-        'year' : '2011',
-    }
+        '1': {
+            'name' : 'Юрий',
+            'last_name' : 'Галацан',
+            'surname' : 'Владимирович',
+            'year' : '2004',
+        },
+        '2': {
+            'name' : 'Владислав',
+            'last_name' : 'Галацан',
+            'surname' : 'Владимирович',
+            'year' : '2011',
+        },
+        '3': {
+            'name' : 'Василий',
+            'last_name' : 'Галацан',
+            'surname' : 'Владимирович',
+            'year' : '2011',
+        }
     }
     return person
 
@@ -142,4 +142,3 @@ def main():
             print("Пользователь не существующет в базе данных")
 if __name__ == "__main__":
     main()
-"""
