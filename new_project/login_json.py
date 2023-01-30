@@ -3,7 +3,7 @@ import json
 
 def read_json():
     try:
-        data = json.load(open("/persons.json", "r"))
+        data = json.load(open("./persons.json", "r"))
     except:
         data = {}
 
@@ -52,7 +52,7 @@ def login():
 def signup():
     last_id = last_user_id()
     try:
-        data = json.load(open("/persons.json"))
+        data = json.load(open("./persons.json"))
         # print(f"data = {type(data)}: {data}")
     except:
         data = {}
@@ -77,7 +77,7 @@ def signup():
     # print(f"data = {type(data)}: {data}")
     # print("we are here 1")
 
-    with open("/persons.json", "w") as file:
+    with open("./persons.json", "w") as file:
         json.dump(data, file, indent=2, ensure_ascii=False)
 
 
