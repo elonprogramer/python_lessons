@@ -1,27 +1,31 @@
 import sys
-import random
+import re
 
 id = sys.argv[1]
 name = sys.argv[2]
-name_list = list(name)
-new_name = ""
-
-new_name = random.choice(name_list)
 
 
 def main(id, name):
     # Відкриваємо файл зі старим кодом та змінними
-    with open('kinopomichnik/sites/uaserial.py', 'r') as f:
+    with open('python_lessons/home_drafts/crated.py', 'r') as f:
         file_contents = f.read()
     # Replace the variables
-    old__value = "TG_CHANNEL_ID"
-    new__value = f"TG_CHANNEL_ID = {id}"
-    file_contents = file_contents.replace(old__value, new__value)
+    print(f"{file_contents=}")
+    old_pattern = "(TG_CHANNEL_ID = -\d+)"
+    match = re.search(old_pattern, file_contents)
+    old_replace_var = match.group(1)
+    # print(match)
+    print(f'{old_replace_var=}')
 
-    # Create a new file with the updated data and old code
-    new_filename = f'kinopomichnik/sites/tg_id_{name}.py'
-    with open(new_filename, 'w') as f:
-        f.write(file_contents)
+    new_replace_var = 'TG_CHANNEL_ID = -3333333'
+    print(f'{new_replace_var=}')
 
+    result = re.sub(old_replace_var, new_replace_var, file_contents)
+    print(f'{file_contents=}')
+    print(f'{result=}')
+
+
+    with open('python_lessons/home_drafts/crated_hbn1.py', 'w') as f_out:
+        f_out.write(result)
 
 main(id, name)

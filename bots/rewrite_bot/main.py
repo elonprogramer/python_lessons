@@ -3,6 +3,7 @@ import config
 
 bot = telebot.TeleBot(config.TOKEN)
 
+
 bot.message_handler(content_types=['text'])
 def ustext(message):
     bot.send_message(message.chat.id,"Привіт")
