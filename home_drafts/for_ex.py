@@ -25,4 +25,5 @@ list_dict = [{'a': 1, 'b': 2}, {'a': 3, 'b': 4}, {'a': 5, 'b': 6}]
 
 for item in list_dict:
     for key, value in item.items():
+        print(f"key: {key} value: {value}")
         print(f'a = {item["a"]}, b = {item["b"]}')
