@@ -1,6 +1,8 @@
 import pygame
 pygame.init()
-
+pygame.mixer.init()
+pygame.mixer.music.load("sounds/car_engine_sound.mpg")
+pygame.mixer.music.play(1000, 0)
 screen = pygame.display.set_mode([1000, 1000])
 BLUE = (0, 0, 255)
 running = True
@@ -8,6 +10,7 @@ while running:
 
     for event in pygame.event.get():
         i = event.type
+        print(i)
         if event.type == pygame.QUIT:
             running = False
     screen.fill((255, 255, 255))
