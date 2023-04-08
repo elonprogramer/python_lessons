@@ -1,7 +1,7 @@
 import pygame
 pygame.init()
 pygame.mixer.init()
-pygame.mixer.music.load("sounds/car_engine_sound.mpg")
+pygame.mixer.music.load("python_lessons/pygame/sounds/car_engine_sound.mpg")
 pygame.mixer.music.play(1000, 0)
 screen = pygame.display.set_mode([1000, 1000])
 BLUE = (0, 0, 255)
