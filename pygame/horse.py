@@ -1,7 +1,10 @@
 # Ширина окна
-import sys
+import os
 import pygame
 
+# Импортируем  папку с картинками
+images_folder = './images'
+horseStand = pygame.image.load(os.path.join(images_folder, 'horse_stand.png'))
 screenWidth = 800
 # Высота окна
 screenHeight = 600
@@ -29,10 +32,14 @@ while True:
     # Назначим FPS
     clock.tick(25)
     posX = posX + speed
-    pygame.draw.rect(screen, BROWN, pygame.Rect(posX, 550, 10, 50))
+    if posX > screenWidth:
+        posX = 0
+    horseY = screenHeight / 2
+    horseX = int(screenWidth / 2)
+    screen.blit(horseStand, (horseX, horseY))
+    pygame.draw.rect(screen, BROWN, pygame.Rect(posX, 500, 10, 100))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-            #sys.exit()
 
     pygame.display.update()
