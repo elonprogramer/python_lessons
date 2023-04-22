@@ -13,7 +13,8 @@ screenHeight = 600
 BLACK = (0, 0, 0)
 GREEN = (0, 103, 71)
 BROWN = (205, 127, 50)
-YELLOW = (255,215,0)
+YELLOW = (255, 215, 0)
+
 
 class Wall(object):
     def __init__(self, x, y, color, height, speed):
@@ -32,9 +33,9 @@ pygame.init()
 
 # Окно
 screen = pygame.display.set_mode((screenWidth, screenHeight))
-background_image = pygame.image.load(os.path.join(images_folder, "Без имени.jpeg"))
+# background_image = pygame.image.load(os.path.join(images_folder, "Без имени.jpeg"))
 
-background_image = pygame.transform.scale(background_image, (screenWidth, screenHeight))
+# background_image = pygame.transform.scale(background_image, (screenWidth, screenHeight))
 
 print('window started')
 
