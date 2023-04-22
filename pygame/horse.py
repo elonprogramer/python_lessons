@@ -1,9 +1,17 @@
 # Ширина окна
 import os
+from pathlib import Path
+
 import pygame
 from sys import exit as exit
-# Импортируем  папку с картинками
-images_folder = './images'
+# Импортируем папку с картинками
+
+# получаем путь к папке где лежит игра
+BASE_DIR = Path(__file__).resolve().parent
+# получаем путь к папке с картинками
+images_folder = (os.path.join(BASE_DIR, 'images'))
+
+
 horseStand = pygame.image.load(os.path.join(images_folder, 'horse_stand.png'))
 horseJump = pygame.image.load(os.path.join(images_folder, 'horse_jump.png'))
 screenWidth = 800
