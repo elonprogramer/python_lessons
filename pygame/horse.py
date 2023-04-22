@@ -3,7 +3,7 @@ import os
 import pygame
 from sys import exit as exit
 # Импортируем  папку с картинками
-images_folder = '/home/elon/git_repos/python_lessons/pygame/images'
+images_folder = './images'
 horseStand = pygame.image.load(os.path.join(images_folder, 'horse_stand.png'))
 horseJump = pygame.image.load(os.path.join(images_folder, 'horse_jump.png'))
 screenWidth = 800
