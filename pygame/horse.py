@@ -10,10 +10,12 @@ from sys import exit as exit
 BASE_DIR = Path(__file__).resolve().parent
 # получаем путь к папке с картинками
 images_folder = (os.path.join(BASE_DIR, 'images'))
+music_folder = (os.path.join(BASE_DIR, 'sounds'))
 
-
+pygame.mixer.init()
 horseStand = pygame.image.load(os.path.join(images_folder, 'horse_stand.png'))
 horseJump = pygame.image.load(os.path.join(images_folder, 'horse_jump.png'))
+pygame.mixer.music.load(os.path.join(music_folder, 'horse_topot.mp3'))
 screenWidth = 800
 # Высота окна
 screenHeight = 600
@@ -55,6 +57,7 @@ clock = pygame.time.Clock()
 
 speed = 5
 yellow_small_wall_speed = 6
+music_started_flag = True
 while True:
     screen.fill(GREEN)
     # Назначим FPS
@@ -74,9 +77,15 @@ while True:
     if keys[pygame.K_SPACE]:
         horseY = horseY - 100
         screen.blit(horseJump, (horseX, horseY))
+        if music_started_flag is False:
+            pygame.mixer.music.stop()
+            music_started_flag = True
     else:
         if horseY != 550:
-            horseY = 550
+            horseY = 550 
+        if music_started_flag:
+            pygame.mixer.music.play(1000, 0)
+            music_started_flag = False
         screen.blit(horseStand, (horseX, horseY))
     pygame.draw.rect(screen, black_big_wall.color, pygame.Rect(black_big_wall.x, black_big_wall.y, black_big_wall.width, black_big_wall.height))
     pygame.time.wait(5)
