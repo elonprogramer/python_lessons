@@ -105,6 +105,10 @@ while True:
     pygame.draw.rect(screen, black_big_wall.color, pygame.Rect(black_big_wall.x, black_big_wall.y, black_big_wall.width, black_big_wall.height))
     # pygame.draw.rect(screen, brown_small_wall.color, pygame.Rect(brown_small_wall.x, brown_small_wall.y, brown_small_wall.width, brown_small_wall.height))
 
+    # функция, которая определяет есть ли столкновение с черной стеной
+    def collision_detection(black_horse, black_big_wall):
+        pass
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
