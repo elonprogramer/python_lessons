@@ -38,7 +38,7 @@ class Wall(object):
 
 black_big_wall = Wall(x=0, y=550, color=BLACK, height=75, speed=5)
 brown_small_wall = Wall(x=500, y=550, color=BROWN, height=50, speed=5)
-yellow_small_wall = Wall(x=screenWidth, y=450, color=YELLOW, height=50, speed=10)
+yellow_small_wall = Wall(x=screenWidth - 100, y=450, color=YELLOW, height=50, speed=5)
 pygame.init()
 
 # Окно
@@ -56,7 +56,6 @@ clock = pygame.time.Clock()
 # wallY = 550
 
 speed = 5
-yellow_small_wall_speed = 6
 pygame.mixer.music.play(1000, 0)
 
 
@@ -70,7 +69,7 @@ while True:
     brown_small_wall.x = brown_small_wall.x + speed
     if brown_small_wall.x > screenWidth:
         brown_small_wall.x = 0
-    yellow_small_wall.x = yellow_small_wall.x - yellow_small_wall_speed
+    yellow_small_wall.x = yellow_small_wall.x - yellow_small_wall.speed
     if yellow_small_wall.x < 0:
         yellow_small_wall.x = screenWidth
     horseY = 550
@@ -86,9 +85,7 @@ while True:
         pygame.mixer.music.unpause()
         screen.blit(horseStand, (horseX, horseY))
     pygame.draw.rect(screen, black_big_wall.color, pygame.Rect(black_big_wall.x, black_big_wall.y, black_big_wall.width, black_big_wall.height))
-    pygame.time.wait(5)
     pygame.draw.rect(screen, brown_small_wall.color, pygame.Rect(brown_small_wall.x, brown_small_wall.y, brown_small_wall.width, brown_small_wall.height))
-    pygame.time.wait(5)
     pygame.draw.rect(screen, yellow_small_wall.color, pygame.Rect(yellow_small_wall.x, yellow_small_wall.y, yellow_small_wall.width, yellow_small_wall.height))
 
     for event in pygame.event.get():
