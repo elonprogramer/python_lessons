@@ -28,6 +28,7 @@ YELLOW = (255, 215, 0)
 
 HORIZONT_LEVEL = 550
 
+
 class Wall(object):
     def __init__(self, x, y, color, height, speed):
         self.x = x
@@ -36,6 +37,7 @@ class Wall(object):
         self.height = height
         self.width = 10
         self.speed = speed
+        self.right_end_x = self.x + self.width
 
 
 class Horse(object):
@@ -44,7 +46,18 @@ class Horse(object):
         self.y = y
         self.state = state
 
-black_big_wall = Wall(x=0, y=HORIZONT_LEVEL, color=BLACK, height=75, speed=3)
+
+# функция, которая определяет есть ли столкновение с черной стеной
+def collision_detection(black_horse, black_big_wall):
+    right_end_x = black_big_wall.x + black_big_wall.width
+    wall_end_y = black_big_wall.y - black_big_wall.height
+    if black_horse.y > wall_end_y:
+        if black_horse.x == right_end_x:
+            black_big_wall.speed = 0
+        else:
+            pass
+
+black_big_wall = Wall(x=0, y=HORIZONT_LEVEL, color=BLACK, height=75, speed=1)
 brown_small_wall = Wall(x=screenWidth - 200, y=HORIZONT_LEVEL, color=BROWN, height=50, speed=3)
 yellow_small_wall = Wall(x=screenWidth, y=HORIZONT_LEVEL - 100, color=YELLOW, height=50, speed=5)
 
@@ -91,7 +104,6 @@ while True:
     keys = pygame.key.get_pressed()
     if keys[pygame.K_SPACE]:
         black_horse.y = HORIZONT_LEVEL - 100
-        print(f"{black_horse.y=}")
         black_horse.state = horseJump
         screen.blit(black_horse.state, (black_horse.x, black_horse.y))
         pygame.mixer.music.pause()
@@ -104,10 +116,7 @@ while True:
 
     pygame.draw.rect(screen, black_big_wall.color, pygame.Rect(black_big_wall.x, black_big_wall.y, black_big_wall.width, black_big_wall.height))
     # pygame.draw.rect(screen, brown_small_wall.color, pygame.Rect(brown_small_wall.x, brown_small_wall.y, brown_small_wall.width, brown_small_wall.height))
-
-    # функция, которая определяет есть ли столкновение с черной стеной
-    def collision_detection(black_horse, black_big_wall):
-        pass
+    collision_detection(black_horse, black_big_wall)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
