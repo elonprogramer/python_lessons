@@ -25,8 +25,17 @@ BLACK = (0, 0, 0)
 GREEN = (0, 103, 71)
 BROWN = (205, 127, 50)
 YELLOW = (255, 215, 0)
+BLUE = (240, 248, 255)
 
 HORIZONT_LEVEL = 550
+
+# Создание класса для прямоугольных спрайтов
+class Rectangle(pygame.sprite.Sprite):
+    def __init__(self, color, width, height):
+        super().__init__()
+        self.image = pygame.Surface([width, height])
+        self.image.fill(color)
+        self.rect = self.image.get_rect()
 
 
 class Wall(object):
@@ -58,6 +67,15 @@ def collision_detection(black_horse, black_big_wall):
             pass
 
 black_big_wall = Wall(x=0, y=HORIZONT_LEVEL, color=BLACK, height=75, speed=1)
+
+black_big_wall_sprite = Rectangle(BLUE, 10, 50)
+black_big_wall_sprite.x = 200
+black_big_wall_sprite.y = 500
+
+sprites = pygame.sprite.Group()
+sprites.add(black_big_wall_sprite)
+
+
 brown_small_wall = Wall(x=screenWidth - 200, y=HORIZONT_LEVEL, color=BROWN, height=50, speed=3)
 yellow_small_wall = Wall(x=screenWidth, y=HORIZONT_LEVEL - 100, color=YELLOW, height=50, speed=5)
 
@@ -91,6 +109,9 @@ while True:
     screen.fill(GREEN)
     # Назначим FPS
     clock.tick(60)
+
+    sprites.draw(screen)
+
     black_big_wall.x = black_big_wall.x + black_big_wall.speed
     if black_big_wall.x > screenWidth:
         black_big_wall.x = 0
@@ -115,7 +136,6 @@ while True:
         pygame.mixer.music.unpause()
 
     pygame.draw.rect(screen, black_big_wall.color, pygame.Rect(black_big_wall.x, black_big_wall.y, black_big_wall.width, black_big_wall.height))
-    # pygame.draw.rect(screen, brown_small_wall.color, pygame.Rect(brown_small_wall.x, brown_small_wall.y, brown_small_wall.width, brown_small_wall.height))
     collision_detection(black_horse, black_big_wall)
 
     for event in pygame.event.get():
