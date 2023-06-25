@@ -1,1 +1,1 @@
-Python course of pygame.
+Python course of pygame. 2023 Python one love
